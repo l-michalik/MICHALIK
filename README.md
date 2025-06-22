@@ -56,8 +56,8 @@ I'm currently focusing on:
 
 If you're hiring, mentoring, or interested in collaboration:
 
-- **LinkedIn**: [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)  
-- **Email**: [you@example.com]
+- **LinkedIn**: [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)]
+- **Email**: [l.michalik004@gmail.com]
 
 ---
 
