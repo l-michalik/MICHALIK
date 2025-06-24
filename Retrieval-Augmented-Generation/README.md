@@ -8,7 +8,7 @@
 
 ## 📦 Project-by-Project Breakdown
 
-### Project 1: 
+### Project 1 (End to End RAG Pipeline): 
 - **Goal**: Enable LLMs to generate responses based on external data sources.
 - **Key Learnings**: RAG integrates retrieval with generation using vector similarity.
 - **Technologies**: Embedding models and vector databases must be dimensionally aligned.
