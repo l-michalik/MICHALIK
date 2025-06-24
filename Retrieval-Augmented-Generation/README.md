@@ -24,14 +24,14 @@
 
 ## 🔄 Shared Concepts & Reusable Patterns
 
-[01] Modular pipeline for chunking, embedding, retrieval, and generation
-[02] Use of ensemble retrieval with cross-encoder re-ranking for precision
+- [01] Modular pipeline for chunking, embedding, retrieval, and generation
+- [02] Use of ensemble retrieval with cross-encoder re-ranking for precision
 
 ---
 
 ## Features
 
-[01] Dynamic, context-aware responses based on live external data
-[02] Support for hybrid retrieval strategies (sparse + dense + structured)
+- [01] Dynamic, context-aware responses based on live external data
+- [02] Support for hybrid retrieval strategies (sparse + dense + structured)
 
 ---
