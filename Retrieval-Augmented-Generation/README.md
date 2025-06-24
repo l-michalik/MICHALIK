@@ -18,12 +18,12 @@
 
 ## 🔄 Shared Concepts & Reusable Patterns
 
-- Modular pipeline for chunking, embedding, retrieval, and generation
+1. Modular pipeline for chunking, embedding, retrieval, and generation
 
 ---
 
 ## Features
 
-- Dynamic, context-aware responses based on live external data
+1. Dynamic, context-aware responses based on live external data
 
 ---
