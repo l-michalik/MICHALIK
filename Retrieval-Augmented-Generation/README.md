@@ -2,7 +2,7 @@
 
 ## 🛠️ Technologies Used
 
-[LLaMA2] [FAISS] [OpenAI] [LangChain]
+LLaMA2 | FAISS | OpenAI | LangChain | Weaviate | HuggingFace
 
 ---
 
@@ -34,6 +34,13 @@
 - **Technologies**: LangChain, OpenAI API, FAISS, dotenv
 - **Takeaways**: RAG improves answer accuracy by grounding responses in relevant source data.
 
+### Project 5 (RAG-Powered PDF QA with Weaviate)
+
+- **Goal**: Enable question answering over a PDF by retrieving semantically relevant text using vector search and generating answers with a language model.
+- **Key Learnings**: Retrieval-Augmented Generation improves answer quality by grounding outputs in contextually relevant source documents.
+- **Technologies**: Python, Weaviate, LangChain, HuggingFace Transformers, Mistral via HuggingFaceHub
+- **Takeaways**: Integrating vector databases with LLMs enables accurate and context-aware QA systems over unstructured documents.
+
 ---
 
 ## 🔄 Shared Concepts & Reusable Patterns
@@ -42,6 +49,7 @@
 - [02] Use of ensemble retrieval with cross-encoder re-ranking for precision
 - [03] Vector comparison using word frequency.
 - [04] Text chunking, vector embeddings, similarity search, prompt templating
+- [05] Retrieval-Augmented Generation over document chunks using vector embeddings and LLMs.
 
 ---
 
@@ -51,5 +59,15 @@
 - [02] Support for hybrid retrieval strategies (sparse + dense + structured)
 - [03] Streams AI response based on best-matched document.
 - [04] FAISS vector index for retrieval
+- [05] Seamless integration of Weaviate vector store with HuggingFace for end-to-end document QA.
+
+
+
+
+
+
+
+
+
 
 ---
