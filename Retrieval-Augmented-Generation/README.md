@@ -41,6 +41,13 @@ LLaMA2 | FAISS | OpenAI | LangChain | Weaviate | HuggingFace
 - **Technologies**: Python, Weaviate, LangChain, HuggingFace Transformers, Mistral via HuggingFaceHub
 - **Takeaways**: Integrating vector databases with LLMs enables accurate and context-aware QA systems over unstructured documents.
 
+### Project 6 (LLM-Powered RAG with LlamaIndex)
+
+- **Goal**: Build a lightweight, file-based RAG system using LlamaIndex and Hugging Face-hosted models for local document QA.
+- **Key Learnings**: LlamaIndex abstracts complex retrieval and generation workflows, making it fast to prototype production-grade RAG systems.
+- **Technologies**: Python, LlamaIndex, HuggingFace Hub, Mistral-7B-Instruct, SentenceTransformers
+- **Takeaways**: Lightweight RAG pipelines can be quickly implemented without a full vector database by using local indexing tools like LlamaIndex.
+
 ---
 
 ## 🔄 Shared Concepts & Reusable Patterns
@@ -50,6 +57,7 @@ LLaMA2 | FAISS | OpenAI | LangChain | Weaviate | HuggingFace
 - [03] Vector comparison using word frequency.
 - [04] Text chunking, vector embeddings, similarity search, prompt templating
 - [05] Retrieval-Augmented Generation over document chunks using vector embeddings and LLMs.
+- [06] Lightweight local RAG using LlamaIndex and HuggingFace-hosted models (no external vector DB required)  
 
 ---
 
@@ -60,14 +68,6 @@ LLaMA2 | FAISS | OpenAI | LangChain | Weaviate | HuggingFace
 - [03] Streams AI response based on best-matched document.
 - [04] FAISS vector index for retrieval
 - [05] Seamless integration of Weaviate vector store with HuggingFace for end-to-end document QA.
-
-
-
-
-
-
-
-
-
+- [06] Local document loading, embedding, indexing, and querying using LlamaIndex and Mistral LLM  
 
 ---
