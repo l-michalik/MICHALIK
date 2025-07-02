@@ -2,7 +2,7 @@
 
 ## 🛠️ Technologies Used
 
-LLaMA2 | FAISS | OpenAI | LangChain | Weaviate | HuggingFace
+LLaMA2 | FAISS | OpenAI | LangChain | Weaviate | HuggingFace | Haystack | Gemini | Haystack
 
 ---
 
@@ -55,6 +55,13 @@ LLaMA2 | FAISS | OpenAI | LangChain | Weaviate | HuggingFace
 - **Technologies**: Python, LlamaIndex, Google Gemini 1.5 Pro, GeminiEmbedding, dotenv
 - **Takeaways**: Local document QA with Gemini is feasible using LlamaIndex’s chunking, embedding, and indexing utilities.
 
+### Project 8 (LLM-Powered RAG with Haystack)
+
+- **Goal**: Build a Retrieval-Augmented Generation (RAG) pipeline using Haystack and OpenAI to answer questions about the Seven Wonders dataset.
+- **Key Learnings**: Haystack's component-based API enables modular design with document embedding, retrieval, prompt construction, and LLM-based generation.
+- **Technologies**: Python, Haystack, Hugging Face Datasets, SentenceTransformers, OpenAI GPT-3.5-Turbo
+- **Takeaways**: Open-domain QA pipelines can be assembled efficiently using Haystack without external databases, leveraging in-memory storage and transformer-based components.
+
 ---
 
 ## 🔄 Shared Concepts & Reusable Patterns
@@ -66,6 +73,8 @@ LLaMA2 | FAISS | OpenAI | LangChain | Weaviate | HuggingFace
 - [05] Retrieval-Augmented Generation over document chunks using vector embeddings and LLMs.
 - [06] Lightweight local RAG using LlamaIndex and HuggingFace-hosted models (no external vector DB required)  
 - [07] Modular pipeline for chunking, embedding, retrieval, and generation
+- [08] Modular pipeline for chunking, embedding, retrieval, and generation
+
 
 ---
 
@@ -78,5 +87,6 @@ LLaMA2 | FAISS | OpenAI | LangChain | Weaviate | HuggingFace
 - [05] Seamless integration of Weaviate vector store with HuggingFace for end-to-end document QA.
 - [06] Local document loading, embedding, indexing, and querying using LlamaIndex and Mistral LLM  
 - [07] Gemini-1.5-Pro-powered document QA over local file-based index
+- [00] Dynamic, context-aware responses generated using retrieved documents and OpenAI LLM
 
 ---

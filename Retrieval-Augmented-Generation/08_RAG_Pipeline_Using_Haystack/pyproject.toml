@@ -1,0 +1,14 @@
+[project]
+name = "08-rag-pipeline-using-haystack"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.9,<3.12"
+
+dependencies = [
+    "datasets>=3.6.0",
+    "haystack-ai>=2.15.1",
+    "sentence-transformers>=5.0.0",
+    "openai>=1.13.3",  # ważne: oficjalny klient OpenAI
+    "python-dotenv>=1.0.1"
+]
