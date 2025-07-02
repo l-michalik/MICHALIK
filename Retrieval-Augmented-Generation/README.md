@@ -2,7 +2,7 @@
 
 ## 🛠️ Technologies Used
 
-LLaMA2 | FAISS | OpenAI | LangChain | Weaviate | HuggingFace | Haystack | Gemini | Haystack
+LLaMA2 | FAISS | OpenAI | LangChain | Weaviate | HuggingFace | Haystack | Gemini | Haystack | Pinecone | FastAPI
 
 ---
 
@@ -62,6 +62,13 @@ LLaMA2 | FAISS | OpenAI | LangChain | Weaviate | HuggingFace | Haystack | Gemini
 - **Technologies**: Python, Haystack, Hugging Face Datasets, SentenceTransformers, OpenAI GPT-3.5-Turbo
 - **Takeaways**: Open-domain QA pipelines can be assembled efficiently using Haystack without external databases, leveraging in-memory storage and transformer-based components.
 
+### Project 9 (RAG-Powered PDF QA with Pinecone)
+
+- **Goal**: Enable question answering over a PDF by retrieving semantically relevant text using vector search and generating answers with a language model.
+- **Key Learnings**: Retrieval-Augmented Generation improves answer quality by grounding outputs in chunked, embedded source documents processed through a modular pipeline.
+- **Technologies**: Python, FastAPI, Pinecone, Haystack, SentenceTransformers, HuggingFace TGI, Uvicorn
+- **Takeaways**: Combining document conversion, semantic search, and LLMs in a pipeline makes it easy to build scalable QA systems over custom PDF data.
+
 ---
 
 ## 🔄 Shared Concepts & Reusable Patterns
@@ -74,7 +81,7 @@ LLaMA2 | FAISS | OpenAI | LangChain | Weaviate | HuggingFace | Haystack | Gemini
 - [06] Lightweight local RAG using LlamaIndex and HuggingFace-hosted models (no external vector DB required)  
 - [07] Modular pipeline for chunking, embedding, retrieval, and generation
 - [08] Modular pipeline for chunking, embedding, retrieval, and generation
-
+- [09] The use of Haystack's component-based pipelines (converter → splitter → embedder → retriever → prompt → generator)
 
 ---
 
@@ -87,6 +94,7 @@ LLaMA2 | FAISS | OpenAI | LangChain | Weaviate | HuggingFace | Haystack | Gemini
 - [05] Seamless integration of Weaviate vector store with HuggingFace for end-to-end document QA.
 - [06] Local document loading, embedding, indexing, and querying using LlamaIndex and Mistral LLM  
 - [07] Gemini-1.5-Pro-powered document QA over local file-based index
-- [00] Dynamic, context-aware responses generated using retrieved documents and OpenAI LLM
+- [08] Dynamic, context-aware responses generated using retrieved documents and OpenAI LLM
+- [09] Text indexes it into Pinecone using embeddings, and serves answers using FastAPI and a HTML.
 
 ---
