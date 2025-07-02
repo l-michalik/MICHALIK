@@ -50,3 +50,8 @@ Settings.embed_model = gemini_embed_model
 index = VectorStoreIndex.from_documents(split_docs, embed_model=gemini_embed_model)
 
 index.storage_context.persist()
+
+# Ensure the query engine is initialized with the correct settings
+query_engine = index.as_query_engine(llm=model)
+
+query_engine.query("What is the main topic of the documents?")

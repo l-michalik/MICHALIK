@@ -48,6 +48,13 @@ LLaMA2 | FAISS | OpenAI | LangChain | Weaviate | HuggingFace
 - **Technologies**: Python, LlamaIndex, HuggingFace Hub, Mistral-7B-Instruct, SentenceTransformers
 - **Takeaways**: Lightweight RAG pipelines can be quickly implemented without a full vector database by using local indexing tools like LlamaIndex.
 
+### Project 7 (LLM-Powered RAG with Gemini & LlamaIndex)
+
+- **Goal**: Build a lightweight, file-based RAG system using LlamaIndex and Google Gemini for local document QA.
+- **Key Learnings**: Gemini integrates smoothly with LlamaIndex to enable flexible document querying and semantic retrieval without external vector DBs.
+- **Technologies**: Python, LlamaIndex, Google Gemini 1.5 Pro, GeminiEmbedding, dotenv
+- **Takeaways**: Local document QA with Gemini is feasible using LlamaIndex’s chunking, embedding, and indexing utilities.
+
 ---
 
 ## 🔄 Shared Concepts & Reusable Patterns
@@ -58,6 +65,7 @@ LLaMA2 | FAISS | OpenAI | LangChain | Weaviate | HuggingFace
 - [04] Text chunking, vector embeddings, similarity search, prompt templating
 - [05] Retrieval-Augmented Generation over document chunks using vector embeddings and LLMs.
 - [06] Lightweight local RAG using LlamaIndex and HuggingFace-hosted models (no external vector DB required)  
+- [07] Modular pipeline for chunking, embedding, retrieval, and generation
 
 ---
 
@@ -69,5 +77,6 @@ LLaMA2 | FAISS | OpenAI | LangChain | Weaviate | HuggingFace
 - [04] FAISS vector index for retrieval
 - [05] Seamless integration of Weaviate vector store with HuggingFace for end-to-end document QA.
 - [06] Local document loading, embedding, indexing, and querying using LlamaIndex and Mistral LLM  
+- [07] Gemini-1.5-Pro-powered document QA over local file-based index
 
 ---
