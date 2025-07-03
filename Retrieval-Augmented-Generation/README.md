@@ -69,6 +69,12 @@ LLaMA2 | FAISS | OpenAI | LangChain | Weaviate | HuggingFace | Haystack | Gemini
 - **Technologies**: Python, FastAPI, Pinecone, Haystack, SentenceTransformers, HuggingFace TGI, Uvicorn
 - **Takeaways**: Combining document conversion, semantic search, and LLMs in a pipeline makes it easy to build scalable QA systems over custom PDF data.
 
+### Project 10 (Rag with GGemma and VectorMongoDB)
+- **Goal**: Generate sentence embeddings from movie plot summaries using a pre-trained transformer model.
+- **Key Learnings**: Shows how to clean data and apply NLP embeddings with SentenceTransformers.
+- **Technologies**: datasets, pandas, sentence-transformers
+- **Takeaways**: Useful pattern for embedding text data for NLP or search applications.
+
 ---
 
 ## 🔄 Shared Concepts & Reusable Patterns
@@ -82,6 +88,7 @@ LLaMA2 | FAISS | OpenAI | LangChain | Weaviate | HuggingFace | Haystack | Gemini
 - [07] Modular pipeline for chunking, embedding, retrieval, and generation
 - [08] Modular pipeline for chunking, embedding, retrieval, and generation
 - [09] The use of Haystack's component-based pipelines (converter → splitter → embedder → retriever → prompt → generator)
+- [10] Clean and embed text data using transformer models in a DataFrame pipeline.
 
 ---
 
@@ -96,5 +103,4 @@ LLaMA2 | FAISS | OpenAI | LangChain | Weaviate | HuggingFace | Haystack | Gemini
 - [07] Gemini-1.5-Pro-powered document QA over local file-based index
 - [08] Dynamic, context-aware responses generated using retrieved documents and OpenAI LLM
 - [09] Text indexes it into Pinecone using embeddings, and serves answers using FastAPI and a HTML.
-
----
+- [10] Adds sentence embeddings to movie plots using MiniLM-L6-v2.
