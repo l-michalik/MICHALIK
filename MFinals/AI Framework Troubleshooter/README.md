@@ -137,7 +137,7 @@ This will:
 5. CLI interface for querying and indexing
 6. Integration with real LLM (OpenAI)
 7. Prompt formatting and context-aware answer generation
-Full RAG pipeline implementation
+8. Full RAG pipeline implementation
 GitHub content fetcher
 Documentation scraper
 Stack Overflow fetcher
