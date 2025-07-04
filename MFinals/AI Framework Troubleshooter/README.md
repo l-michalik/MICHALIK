@@ -118,7 +118,8 @@ OPENAI_API_KEY=your_openai_key
 Once your environment is set up, you can start querying the assistant:
 
 ```bash
-uv run main.py
+uv run main.py index --file docs/langchain.md --source "LangChain Docs"
+uv run main.py query --question "Why is load_chain not working?"
 ```
 
 This will:
@@ -132,8 +133,8 @@ This will:
 1. Project setup and configuration
 2. Weaviate Cloud integration with schema creation, vector upsert, and query interface.
 3. Embedding with real sentence-transformers
-Semantic document indexing with deduplication
-CLI interface for querying and indexing
+4. Semantic document indexing with deduplication
+5. CLI interface for querying and indexing
 Integration with real LLM (OpenAI or Hugging Face)
 Prompt formatting and context-aware answer generation
 Full RAG pipeline implementation
