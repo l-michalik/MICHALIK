@@ -124,8 +124,6 @@ uv run main.py index-github --owner langchain-ai --repo langchain
 uv run main.py index-stack --question "how to load pdfs in langchain"
 ```
 
-Source attribution and citation formatting
-Logging and error handling
 Version-aware query routing
 Deployment and hosting
 Documentation and usage examples
