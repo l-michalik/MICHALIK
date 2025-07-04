@@ -4,7 +4,6 @@ from retriever.embedder import embed_text
 from generator.llm_runner import call_openai_llm
 from generator.prompt_template import format_prompt
 
-logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 def extract_keywords(question: str) -> list:
@@ -27,7 +26,7 @@ def query_index(question: str) -> list:
         ]
 
         if not filtered:
-            logger.warning("⚠️ No filtered chunks matched keywords. Using all retrieved chunks.")
+            logger.warning("No filtered chunks matched keywords. Using all retrieved chunks.")
         return filtered or chunks
 
     except Exception as e:
@@ -47,7 +46,7 @@ def generate_answer(question: str, context_chunks: list) -> str:
 {answer}
 """.strip()
 
-        if answer.lower() in {"i don't know", "i do not know", "no information available", "unknown"}:
+        if answer.lower() in {"i don't know", "i do not know", "no information available", "unknown", "i don't know."}:
             return base_output
 
         sources = {}

@@ -52,54 +52,10 @@ Each answer includes:
 
 ---
 
-### 5. 🧪 Version-Aware Question Routing (Optional)
+### 5. 🧪 Version-Aware Question Routing
 Route queries to the correct framework version by detecting:
 - Version mentions in user queries (e.g., "LangChain 0.1.6")
 - Changelog-aware context inclusion
-
-
-## 📂 Folder Structure
-
-```
-ai-framework-troubleshooter/
-├── data/
-│   └── processed/               # Cleaned & chunked docs (stored)
-│
-├── db/
-│   ├── weaviate_client.py       # Handles cloud vector index operations
-│   ├── schema.py                # Weaviate class/schema definitions
-│   └── upsert.py                # Pushes documents to Weaviate
-│
-├── retriever/
-│   ├── github_fetcher.py
-│   ├── docs_scraper.py
-│   ├── stackoverflow_fetcher.py
-│   ├── chunker.py
-│   └── embedder.py              # Sends embeddings to Weaviate
-│
-├── generator/
-│   ├── prompt_template.py
-│   ├── llm_runner.py            # Calls Hugging Face LLM
-│   └── rag_pipeline.py          # Full RAG logic using cloud index + LLM
-│
-├── app/
-│   └── api.py                   # FastAPI endpoint to serve answers
-│
-├── utils/
-│   ├── config.py                # Load API keys, endpoints from env
-│   └── logging_config.py
-│
-├── tests/
-│   ├── test_vector_db.py
-│   ├── test_retrieval.py
-│   └── test_pipeline.py
-│
-├── main.py                      # CLI tool (e.g., query, embed, update)
-├── pyproject.toml
-├── .env
-└── README.md
-```
-
 
 ## 🛠 Setup
 
@@ -110,7 +66,12 @@ This project uses [`uv`](https://github.com/astral-sh/uv) — a superfast Python
 Create a `.env` file in the root directory:
 
 ```env
-OPENAI_API_KEY=your_openai_key
+OPENAI_API_KEY=
+OPENAI_MODEL=
+WEAVIATE_REST_ENDPOINT=
+WEAVIATE_API_KEY=
+TOKENIZERS_PARALLELISM=
+SERPAPI_API_KEY=
 ```
 
 ## 🧪 Usage
@@ -123,7 +84,3 @@ uv run main.py index --file docs/langchain.md --source "LangChain Docs"
 uv run main.py index-github --owner langchain-ai --repo langchain
 uv run main.py index-stack --question "how to load pdfs in langchain"
 ```
-
-Version-aware query routing
-Deployment and hosting
-Documentation and usage examples

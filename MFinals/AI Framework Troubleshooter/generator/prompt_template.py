@@ -9,7 +9,7 @@ def format_prompt(question: str, context_chunks: list) -> tuple[str, str]:
         "Use the provided context (from documentation, forums, GitHub) "
         "to answer the user's question. Be precise, helpful, and include code examples if relevant. "
         "Do NOT make up information. Only use what's in the context."
-        "If you don't know the answer,your whole answear should be only 'I don't know'. "
+        "If you don't know the answer,your whole answear should be only 'I don't know.'. "
     )
 
     user_prompt = (
