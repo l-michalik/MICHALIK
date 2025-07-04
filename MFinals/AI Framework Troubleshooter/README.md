@@ -63,7 +63,7 @@ Route queries to the correct framework version by detecting:
 ```
 ai-framework-troubleshooter/
 ├── data/
-│   └── processed/               # Cleaned & chunked docs (stored locally or on cloud)
+│   └── processed/               # Cleaned & chunked docs (stored 
 │
 ├── db/
 │   ├── weaviate_client.py       # Handles cloud vector index operations
