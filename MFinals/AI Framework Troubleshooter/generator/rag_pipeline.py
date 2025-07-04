@@ -12,9 +12,21 @@ def query_index(question: str) -> list:
     return results.objects
 
 def generate_answer(question: str, context_chunks: list) -> str:
-    context_text = "\n".join([chunk.properties["content"] for chunk in context_chunks])
+    # Extract and format context snippets
+    context_snippets = [
+        f"• {chunk.properties['content']} (source: {chunk.properties.get('source', 'unknown')})"
+        for chunk in context_chunks
+    ]
+    context_text = "\n".join(context_snippets)
+
     return f"""
-Question: {question}
-    
-Context: {context_text}
-    """
+================= 💬 Developer Question =================
+
+{question}
+
+================= 📚 Retrieved Context ==================
+
+{context_text}
+
+========================================================
+"""
