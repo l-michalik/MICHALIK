@@ -1,6 +1,7 @@
 from db.weaviate_client import get_weaviate_client
 from retriever.embedder import embed_text
 from generator.llm_runner import call_openai_llm
+from generator.prompt_template import format_prompt
 
 def query_index(question: str) -> list:
     client = get_weaviate_client()
@@ -10,24 +11,7 @@ def query_index(question: str) -> list:
     return results.objects
 
 def generate_answer(question: str, context_chunks: list) -> str:
-    context = "\n".join([
-        f"• {chunk.properties['content']} (source: {chunk.properties.get('source', 'unknown')})"
-        for chunk in context_chunks
-    ])
-
-    system_prompt = (
-        "You are an expert AI developer assistant. "
-        "Use the provided context (from documentation, forums, and GitHub) "
-        "to answer the user's question truthfully and concisely. "
-        "Do not guess or invent facts. Include code examples if helpful."
-    )
-
-    user_prompt = (
-        f"Question:\n{question}\n\n"
-        f"Context:\n{context}\n\n"
-        f"Answer the question using ONLY the context above."
-    )
-
+    system_prompt, user_prompt = format_prompt(question, context_chunks)
     answer = call_openai_llm(system_prompt, user_prompt)
 
     return f"""

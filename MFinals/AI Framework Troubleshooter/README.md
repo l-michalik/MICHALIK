@@ -136,7 +136,7 @@ This will:
 4. Semantic document indexing with deduplication
 5. CLI interface for querying and indexing
 6. Integration with real LLM (OpenAI)
-Prompt formatting and context-aware answer generation
+7. Prompt formatting and context-aware answer generation
 Full RAG pipeline implementation
 GitHub content fetcher
 Documentation scraper
