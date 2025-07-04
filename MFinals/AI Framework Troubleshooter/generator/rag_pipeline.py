@@ -14,7 +14,7 @@ def query_index(question: str) -> list:
 def generate_answer(question: str, context_chunks: list) -> str:
     context_text = "\n".join([chunk.properties["content"] for chunk in context_chunks])
     return f"""
-    Question: {question}
+Question: {question}
     
-    Context: {context_text}
+Context: {context_text}
     """
