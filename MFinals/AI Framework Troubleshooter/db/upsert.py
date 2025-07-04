@@ -9,10 +9,15 @@ def upsert_documents(docs: list):
     client = get_weaviate_client()
     collection = client.collections.get("DocChunk")
 
+    print("🔎 Fetching existing content hashes from Weaviate...")
     existing = collection.query.bm25(query="*", limit=1000).objects
     existing_hashes = {
-        obj["properties"].get("content_hash") for obj in existing if "content_hash" in obj["properties"]
+        obj.properties.get("content_hash")
+        for obj in existing
+        if obj.properties.get("content_hash")
     }
+
+    upserted_count = 0
 
     for doc in docs:
         content = doc["content"]
@@ -31,5 +36,6 @@ def upsert_documents(docs: list):
             },
             vector=vector
         )
-        
-    print(f"✅ Upserted {len(docs)} documents to Weaviate.")
+        upserted_count += 1
+
+    print(f"✅ Upserted {upserted_count} new documents to Weaviate.")

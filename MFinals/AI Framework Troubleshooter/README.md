@@ -24,7 +24,7 @@ Retrieve relevant content from:
 - Official documentation (e.g., LangChain, Transformers)
 - GitHub files (e.g., README.md, changelogs, examples)
 - Stack Overflow answers and questions  
-Using vector embeddings + similarity search (e.g., FAISS).
+Using vector embeddings + similarity search Weawiate.
 
 ---
 
@@ -63,7 +63,7 @@ Route queries to the correct framework version by detecting:
 ```
 ai-framework-troubleshooter/
 ├── data/
-│   └── processed/               # Cleaned & chunked docs (stored 
+│   └── processed/               # Cleaned & chunked docs (stored)
 │
 ├── db/
 │   ├── weaviate_client.py       # Handles cloud vector index operations
@@ -143,7 +143,7 @@ This will:
 9. GitHub content fetcher
 10. Documentation scraper
 11. Stack Overflow fetcher
-Document chunking and metadata enrichment
+12. Document chunking and metadata enrichment
 Automatic index update system
 FastAPI backend for serving answers
 Unit and integration testing

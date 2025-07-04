@@ -107,8 +107,6 @@ def main():
 
     query_parser = subparsers.add_parser("query", help="Ask a dev question")
     query_parser.add_argument("--question", required=True, help="Natural language question")
-    query_parser.add_argument("--owner", help="GitHub org/user (for fallback indexing)")
-    query_parser.add_argument("--repo", help="GitHub repo name (for fallback indexing)")
     
     stack_parser = subparsers.add_parser("index-stack", help="Fetch and index Stack Overflow answers")
     stack_parser.add_argument("--question", required=True, help="Natural language dev question")
@@ -120,10 +118,9 @@ def main():
     elif args.command == "index-github":
         cli_index_github(args.owner, args.repo)
     elif args.command == "query":
-        cli_query(args.question, owner=args.owner, repo=args.repo)
+        cli_query(args.question)
     elif args.command == "index-stack":
         cli_stackoverflow(args.question)
-
 
 if __name__ == "__main__":
     main()
