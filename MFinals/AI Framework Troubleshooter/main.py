@@ -8,6 +8,28 @@ from retriever.chunker import chunk_text
 from retriever.github_fetcher import fetch_repo_files
 from utils.web_search import search_docs_for_question
 from retriever.docs_scraper import scrape_single_page
+from retriever.stackoverflow_fetcher import fetch_stackoverflow_answers
+
+def cli_stackoverflow(question: str):
+    print(f"📦 Fetching Stack Overflow results for: {question}")
+    results = fetch_stackoverflow_answers(question)
+
+    if not results:
+        print("⚠️ No Stack Overflow results found.")
+        return
+
+    all_chunks = []
+    for doc in results:
+        for chunk in chunk_text(doc["content"]):
+            all_chunks.append({
+                "content": chunk,
+                "source": doc["source"]
+            })
+
+    print(f"📤 Upserting {len(all_chunks)} chunks from Stack Overflow...")
+    upsert_documents(all_chunks)
+
+    print("✅ Done. You can now rerun your query with updated context.")
 
 def cli_index(file_path: str, source: str):
 
@@ -87,6 +109,9 @@ def main():
     query_parser.add_argument("--question", required=True, help="Natural language question")
     query_parser.add_argument("--owner", help="GitHub org/user (for fallback indexing)")
     query_parser.add_argument("--repo", help="GitHub repo name (for fallback indexing)")
+    
+    stack_parser = subparsers.add_parser("index-stack", help="Fetch and index Stack Overflow answers")
+    stack_parser.add_argument("--question", required=True, help="Natural language dev question")
 
     args = parser.parse_args()
 
@@ -95,7 +120,10 @@ def main():
     elif args.command == "index-github":
         cli_index_github(args.owner, args.repo)
     elif args.command == "query":
-        cli_query(args.question)
+        cli_query(args.question, owner=args.owner, repo=args.repo)
+    elif args.command == "index-stack":
+        cli_stackoverflow(args.question)
+
 
 if __name__ == "__main__":
     main()
