@@ -131,7 +131,7 @@ This will:
 
 1. Project setup and configuration
 2. Weaviate Cloud integration with schema creation, vector upsert, and query interface.
-Embedding with real sentence-transformers
+3. Embedding with real sentence-transformers
 Semantic document indexing with deduplication
 CLI interface for querying and indexing
 Integration with real LLM (OpenAI or Hugging Face)
