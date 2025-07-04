@@ -130,7 +130,7 @@ This will:
 ## Plan
 
 1. Project setup and configuration
-Weaviate Cloud integration with schema creation, vector upsert, and query interface.
+2. Weaviate Cloud integration with schema creation, vector upsert, and query interface.
 Embedding with real sentence-transformers
 Semantic document indexing with deduplication
 CLI interface for querying and indexing
