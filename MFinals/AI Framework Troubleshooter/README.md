@@ -126,3 +126,26 @@ This will:
 2. Accept your natural language question via CLI or API
 3. Retrieve relevant docs/code/threads
 4. Use an LLM to generate a source-aware response
+
+## Plan
+
+1. Project setup and configuration
+Local Weaviate vector database integration
+Embedding with real sentence-transformers
+Semantic document indexing with deduplication
+CLI interface for querying and indexing
+Integration with real LLM (OpenAI or Hugging Face)
+Prompt formatting and context-aware answer generation
+Full RAG pipeline implementation
+GitHub content fetcher
+Documentation scraper
+Stack Overflow fetcher
+Document chunking and metadata enrichment
+Automatic index update system
+FastAPI backend for serving answers
+Unit and integration testing
+Source attribution and citation formatting
+Logging and error handling
+Version-aware query routing
+Deployment and hosting
+Documentation and usage examples
