@@ -8,3 +8,4 @@ class Config:
     WEAVIATE_API_KEY = os.getenv("WEAVIATE_API_KEY")
     OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
     OPENAI_MODEL = os.getenv("OPENAI_MODEL")
+    SERPAPI_API_KEY = os.getenv("SERPAPI_API_KEY")

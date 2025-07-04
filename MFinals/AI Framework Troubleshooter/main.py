@@ -6,9 +6,10 @@ from db.upsert import upsert_documents
 from generator.rag_pipeline import query_index, generate_answer
 from retriever.chunker import chunk_text
 from retriever.github_fetcher import fetch_repo_files
+from utils.web_search import search_docs_for_question
+from retriever.docs_scraper import scrape_single_page
 
 def cli_index(file_path: str, source: str):
-    create_schema_if_missing(get_weaviate_client())
 
     print(f"📄 Reading file: {file_path}")
     text = Path(file_path).read_text(encoding="utf-8")
@@ -17,7 +18,6 @@ def cli_index(file_path: str, source: str):
     upsert_documents(docs)
 
 def cli_index_github(owner: str, repo: str):
-    create_schema_if_missing(get_weaviate_client())
 
     print(f"📦 Fetching up to 5 files from GitHub repo: {owner}/{repo}")
     files = fetch_repo_files(owner=owner, repo=repo, max_files=5)
@@ -37,10 +37,41 @@ def cli_index_github(owner: str, repo: str):
 
 def cli_query(question: str):
     chunks = query_index(question)
+    
+    if not chunks:
+        print("⚠️ No relevant context found. Searching for docs...")
+
+        doc_url = search_docs_for_question(question)
+        if not doc_url:
+            print("❌ Could not find any documentation link.")
+            return
+
+        scraped = scrape_single_page(doc_url)
+        if not scraped:
+            print("❌ Failed to scrape or extract content.")
+            return
+
+        docs = []
+        for doc in scraped:
+            for chunk in chunk_text(doc["content"]):
+                docs.append({
+                    "content": chunk,
+                    "source": doc["source"]
+                })
+
+        print(f"📥 Indexing {len(docs)} new chunks...")
+        upsert_documents(docs)
+
+        chunks = query_index(question)
+        if not chunks:
+            print("❌ Still no context found after indexing.")
+            return
+
     answer = generate_answer(question, chunks)
     print(answer)
 
 def main():
+    create_schema_if_missing(get_weaviate_client())
     parser = argparse.ArgumentParser(description="🧠 AI Framework Troubleshooter CLI")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
