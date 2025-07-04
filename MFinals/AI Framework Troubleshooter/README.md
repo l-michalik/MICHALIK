@@ -135,7 +135,7 @@ This will:
 3. Embedding with real sentence-transformers
 4. Semantic document indexing with deduplication
 5. CLI interface for querying and indexing
-Integration with real LLM (OpenAI or Hugging Face)
+6. Integration with real LLM (OpenAI)
 Prompt formatting and context-aware answer generation
 Full RAG pipeline implementation
 GitHub content fetcher
