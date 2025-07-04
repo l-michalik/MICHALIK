@@ -30,5 +30,3 @@ def create_schema_if_missing(client: weaviate.WeaviateClient) -> None:
             vectorizer_config=Configure.Vectorizer.none()
         )
         print(f"Collection '{class_name}' created successfully.")
-    else:
-        print(f"Collection '{class_name}' already exists.")

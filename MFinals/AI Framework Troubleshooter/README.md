@@ -119,6 +119,7 @@ Once your environment is set up, you can start querying the assistant:
 
 ```bash
 uv run main.py index --file docs/langchain.md --source "LangChain Docs"
+uv run main.py index-github --owner langchain-ai --repo langchain
 uv run main.py query --question "Why is load_chain not working?"
 ```
 
@@ -138,7 +139,7 @@ This will:
 6. Integration with real LLM (OpenAI)
 7. Prompt formatting and context-aware answer generation
 8. Full RAG pipeline implementation
-GitHub content fetcher
+9. GitHub content fetcher
 Documentation scraper
 Stack Overflow fetcher
 Document chunking and metadata enrichment

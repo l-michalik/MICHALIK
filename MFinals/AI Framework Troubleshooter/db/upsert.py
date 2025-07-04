@@ -31,4 +31,5 @@ def upsert_documents(docs: list):
             },
             vector=vector
         )
-        print(f"✅ Inserted: {content[:60]}")
+        
+    print(f"✅ Upserted {len(docs)} documents to Weaviate.")
