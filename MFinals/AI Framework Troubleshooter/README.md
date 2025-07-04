@@ -124,29 +124,6 @@ uv run main.py index-github --owner langchain-ai --repo langchain
 uv run main.py index-stack --question "how to load pdfs in langchain"
 ```
 
-This will:
-1. Load the vector index (or create one if missing)
-2. Accept your natural language question via CLI or API
-3. Retrieve relevant docs/code/threads
-4. Use an LLM to generate a source-aware response
-
-## Plan
-
-1. Project setup and configuration
-2. Weaviate Cloud integration with schema creation, vector upsert, and query interface.
-3. Embedding with real sentence-transformers
-4. Semantic document indexing with deduplication
-5. CLI interface for querying and indexing
-6. Integration with real LLM (OpenAI)
-7. Prompt formatting and context-aware answer generation
-8. Full RAG pipeline implementation
-9. GitHub content fetcher
-10. Documentation scraper
-11. Stack Overflow fetcher
-12. Document chunking and metadata enrichment
-Automatic index update system
-FastAPI backend for serving answers
-Unit and integration testing
 Source attribution and citation formatting
 Logging and error handling
 Version-aware query routing
