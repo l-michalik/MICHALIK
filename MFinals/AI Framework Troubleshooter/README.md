@@ -142,7 +142,7 @@ This will:
 8. Full RAG pipeline implementation
 9. GitHub content fetcher
 10. Documentation scraper
-Stack Overflow fetcher
+11. Stack Overflow fetcher
 Document chunking and metadata enrichment
 Automatic index update system
 FastAPI backend for serving answers
