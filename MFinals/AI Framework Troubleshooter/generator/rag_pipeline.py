@@ -14,20 +14,21 @@ def query_index(question: str) -> list:
         client = get_weaviate_client()
         vector = embed_text(question)
         collection = client.collections.get("DocChunk")
-        results = collection.query.near_vector(vector, limit=8)
+        results = collection.query.near_vector(vector, limit=15, certainty=0.7)
         chunks = results.objects
 
-        logger.info(f"🔍 Retrieved {len(chunks)} chunks for question: '{question}'")
+        print(f"🔍 Retrieved {len(chunks)} chunks for question: '{question}'")
 
         keywords = extract_keywords(question)
-        filtered = [
-            c for c in chunks
-            if any(k in c.properties.get("content", "").lower() for k in keywords)
-        ]
 
-        if not filtered:
-            logger.warning("No filtered chunks matched keywords. Using all retrieved chunks.")
-        return filtered or chunks
+        def score(chunk):
+            content = chunk.properties.get("content", "").lower()
+            return sum(k in content for k in keywords)
+
+        ranked = sorted(chunks, key=score, reverse=True)
+        top_chunks = ranked[:5]
+
+        return top_chunks or chunks
 
     except Exception as e:
         logger.error(f"❌ Failed to query vector index: {e}")
@@ -38,8 +39,6 @@ def generate_answer(question: str, context_chunks: list) -> str:
         system_prompt, user_prompt = format_prompt(question, context_chunks)
         answer = call_openai_llm(system_prompt, user_prompt).strip()
         
-        
-
         base_output = f"""
 ================= 💬 Developer Question =================
 {question}
