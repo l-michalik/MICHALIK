@@ -37,6 +37,8 @@ def generate_answer(question: str, context_chunks: list) -> str:
     try:
         system_prompt, user_prompt = format_prompt(question, context_chunks)
         answer = call_openai_llm(system_prompt, user_prompt).strip()
+        
+        
 
         base_output = f"""
 ================= 💬 Developer Question =================
@@ -50,12 +52,19 @@ def generate_answer(question: str, context_chunks: list) -> str:
             return base_output
 
         sources = {}
+        source_versions = {}
+
         for chunk in context_chunks:
             src = chunk.properties.get("source", "unknown")
+            version = chunk.properties.get("version", "").strip()
             if src not in sources:
                 sources[src] = len(sources) + 1
+                source_versions[src] = version or "unknown"
 
-        reference_section = "\n".join(f"[{i}] {url}" for url, i in sources.items())
+        reference_section = "\n".join(
+            f"[{i}] {url} (v{source_versions[url]})"
+            for url, i in sources.items()
+        )
 
         return f"{base_output}\n\n================= 🔗 Sources ============================\n{reference_section}".strip()
 
