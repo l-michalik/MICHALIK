@@ -1,6 +1,7 @@
 import hashlib
 from db.weaviate_client import get_weaviate_client
 from retriever.embedder import embed_text
+from retriever.version_detector import detect_version
 
 def hash_text(text: str) -> str:
     return hashlib.sha256(text.strip().encode()).hexdigest()
@@ -28,11 +29,14 @@ def upsert_documents(docs: list):
             continue
 
         vector = embed_text(content)
+        version = detect_version(doc.get("source", "") + " " + content)
+
         collection.data.insert(
             properties={
                 "content": content,
                 "source": doc["source"],
-                "content_hash": content_hash
+                "content_hash": content_hash,
+                "version": version or "",
             },
             vector=vector
         )

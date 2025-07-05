@@ -84,3 +84,6 @@ uv run main.py index --file docs/langchain.md --source "LangChain Docs"
 uv run main.py index-github --owner langchain-ai --repo langchain
 uv run main.py index-stack --question "how to load pdfs in langchain"
 ```
+
+it should auto-search if i don;t know 
+chunks should be get goodly 
