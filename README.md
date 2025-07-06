@@ -23,22 +23,30 @@ Every addition here is something I've studied, implemented, or deployed — no f
 This section will evolve as I build and refine my toolkit:
 
 ### Languages & Libraries
-> *(coming soon)*
+- Python  
+- LangChain, LlamaIndex, Haystack  
+- Hugging Face Transformers, SentenceTransformers  
+- Uvicorn, dotenv  
 
 ### Data & Visualization
-> *(coming soon)*
+- pandas, datasets  
+- Matplotlib, seaborn (when needed)  
 
 ### Machine Learning
-> *(coming soon)*
+- Scikit-learn 
+- Experimentation with vector similarity techniques  
 
 ### Deep Learning
-> *(coming soon)*
+- HuggingFace Transformers  
+- Mistral, LLaMA2, Gemini  
+- OpenAI GPT APIs  
 
 ### Deployment
-> *(coming soon)*
+- Docker  
+- Uvicorn  
 
 ### MLOps & Tooling
-> *(coming soon)*
+- Local and cloud vector databases: FAISS, Weaviate, Pinecone  
 
 ---
 
