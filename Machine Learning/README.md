@@ -1,6 +1,8 @@
 # Machine Learning
 
-## Wykorzystane technologie
+## Technologies Used
 
-- Fields correlation  
-- Random Forest Regressor
+- Feature correlation analysis  
+- Random Forest Regressor  
+- Outlier removal (removing extreme values)  
+- GridSearchCV (hyperparameter tuning)
