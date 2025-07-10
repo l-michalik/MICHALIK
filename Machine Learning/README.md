@@ -6,3 +6,7 @@
 - Random Forest Regressor  
 - Outlier removal (removing extreme values)  
 - GridSearchCV (hyperparameter tuning)
+
+---
+creaet dummies flields 
+RandomForestClassifier
