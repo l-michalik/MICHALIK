@@ -10,3 +10,7 @@
 - Focus on recall if false negatives are bad
 - Export final model
 - Compare different regressors
+---
+- compare correaltion
+- features importances
+- comparasiing data using rmse and mea
