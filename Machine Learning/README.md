@@ -14,3 +14,6 @@
 - compare correaltion
 - features importances
 - comparasiing data using rmse and mea
+- lstm
+- pipelines
+- auto column tranform
