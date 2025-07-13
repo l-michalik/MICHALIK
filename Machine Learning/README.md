@@ -16,4 +16,4 @@
 - comparasiing data using rmse and mea
 - lstm
 - pipelines
-- auto column tranform
+- ColumnTransformer
