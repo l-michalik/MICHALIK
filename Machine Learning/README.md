@@ -10,10 +10,11 @@
 - Focus on recall if false negatives are bad
 - Export final model
 - Compare different regressors
----
-- compare correaltion
-- features importances
-- comparasiing data using rmse and mea
-- lstm
-- pipelines
-- ColumnTransformer
+- Compare correlation
+- Feature importance
+- Compare models using RMSE and MAE
+- Try LSTM
+- Use pipelines
+- Apply ColumnTransformer
+- Explore Julius AI
+- Identify patterns
