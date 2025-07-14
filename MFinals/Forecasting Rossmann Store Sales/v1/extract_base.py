@@ -122,8 +122,5 @@ def main() -> None:
     else:
         print("Warning: store.csv or store_states.csv not found.")
 
-    print("\nAll available data processed successfully.")
-
-
 if __name__ == '__main__':
     main()
