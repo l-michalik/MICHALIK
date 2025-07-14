@@ -3,7 +3,8 @@ import pickle
 import csv
 import os
 
-from typing import List, Dict
+from typing import List, Dict, Tuple
+from v2.consts import EVENT_CATEGORIES, STATE_ABBREVIATIONS
 
 def extract_zip(zip_path: str, extract_to: str) -> None:
     if not os.path.isfile(zip_path):
@@ -29,4 +30,23 @@ def save_pickle(data, filename: str, dir_: str = 'pickles') -> None:
     filepath = os.path.join(dir_, filename)
     with open(filepath, 'wb') as f:
         pickle.dump(data, f, protocol=pickle.HIGHEST_PROTOCOL)
-    print(f"Saved: {filepath}")
+    
+def normalize(value: int, offset: int, scale: int) -> float:
+    return (value - offset) / scale
+
+def event_to_int(event: str) -> int:
+    try:
+        return EVENT_CATEGORIES.index(event)
+    except ValueError:
+        return 0
+
+def state_name_to_abbreviation(state_name: str) -> str:
+    return STATE_ABBREVIATIONS.get(state_name, 'UNKNOWN')
+
+def save_weather_pickle(
+    weather: Dict[Tuple[str, str], List[float]],
+    output_path: str = './pickles/weather.pickle'
+) -> None:
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    with open(output_path, 'wb') as f:
+        pickle.dump(weather, f, protocol=pickle.HIGHEST_PROTOCOL)
