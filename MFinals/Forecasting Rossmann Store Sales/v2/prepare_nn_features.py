@@ -1,18 +1,13 @@
 import numpy as np
 
-
 def CompetitionOpenSinceYear2int(since_year_array):
-    # Zamienia rok otwarcia konkurencji na liczbę całkowitą (normalizowaną)
     since_year_array = since_year_array.copy()
     return np.where(since_year_array < 2000, 1, since_year_array - 1998)
 
-
 def Promo2SinceYear2int(year_array):
-    # Przesuwa lata Promo2 względem 2008 roku
     year_array = year_array.copy()
     shifted = year_array - 2008
     return np.where(shifted < 0, 0, shifted)
-
 
 def split_features(X):
     X = np.array(X)

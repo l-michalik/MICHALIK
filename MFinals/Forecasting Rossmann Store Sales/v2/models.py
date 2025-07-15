@@ -8,7 +8,7 @@ from keras.layers import (
     Input, Embedding, Dense, Dropout, Activation, Reshape, Concatenate
 )
 from keras.optimizers import Adam
-from prepare_nn_features import split_features
+from v2.prepare_nn_features import split_features
 
 class ModelBase:
     def __init__(self, train_ratio: float):
