@@ -110,7 +110,7 @@ def extract_features(record, store_data, weather, fb, trends):
     return features
 
 
-def generate_dataset():
+def prepare_dataset():
     train_data, test_data, store_data, weather, fb, trends = load_pickle_data()
 
     X_train, y_train = [], []
@@ -133,4 +133,4 @@ def generate_dataset():
     print("Feature engineering complete. Pickles saved in ./pickles/.")
 
 if __name__ == "__main__":
-    generate_dataset()
+    prepare_dataset()
