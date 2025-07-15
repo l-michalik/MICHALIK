@@ -22,7 +22,7 @@ def process_store_data(store_path: str, state_path: str) -> None:
 
     save_pickle(store_data, 'store_data.pickle')
 
-def unzip_data() -> None:
+def extract_base() -> None:
     zip_path = 'data/zip/rossmann-store-sales.zip'
     extract_dir = './extracted'
 
@@ -53,4 +53,4 @@ def unzip_data() -> None:
                 print(f"Warning: {filenames} not found.")
 
 if __name__ == '__main__':
-    unzip_data()
+    extract_base()

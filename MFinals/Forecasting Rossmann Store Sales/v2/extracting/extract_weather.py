@@ -37,7 +37,7 @@ def parse_weather_file(
             except (ValueError, IndexError) as e:
                 print(f"[{filepath}:{row_num}] Skipping invalid row: {e}")
 
-def process_weather(csv_dir: str = 'data/weather') -> None:
+def extract_weather(csv_dir: str = 'data/weather') -> None:
     csv_files = glob.glob(os.path.join(csv_dir, '*.csv'))
 
     if not csv_files:
@@ -53,4 +53,4 @@ def process_weather(csv_dir: str = 'data/weather') -> None:
     save_weather_pickle(weather_data)
 
 if __name__ == '__main__':
-    process_weather()
+    extract_weather()
