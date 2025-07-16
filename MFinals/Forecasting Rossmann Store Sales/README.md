@@ -44,4 +44,4 @@ v2/
 ├── notebooks/                        # Notebooki eksploracyjne (jeśli używasz)
 └── README.md
 
-przepisz go wysokiej klasy kod jakby pisal go senior python developer i nie rob tego na slepo tylko sie zastanow czy ten kod nie jest przestarzaly i np. formy zapisu pickle sa dobre - zrob to najlepiej jak sie da
+przepisz go wysokiej klasy kod jakby pisal go senior python developer i nie rob tego na slepo tylko sie zastanow czy ten kod nie jest przestarzaly i np. formy zapisu pickle sa dobre - zrob to najlepiej jak sie da i ma to byc na miare 2025 roku, jesli cos nadaje sie do wydzielenia do utils to zaznacz to
