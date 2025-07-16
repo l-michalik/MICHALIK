@@ -5,8 +5,8 @@ from typing import Callable, Union
 from v3.utils.main import extract_zip, read_csv_to_dicts, save_joblib
 from v3.config import Config
 
-OUTPUT_DIR = Config.OUTPUT_DIR
 DATA_DIR = Config.DATA_DIR
+OUTPUT_DIR = Config.OUTPUT_DIR
 EXTRACT_DIR = Config.EXTRACT_DIR
 
 logger = logging.getLogger(__name__)
@@ -30,7 +30,7 @@ def process_store_data(store_path: Path, state_path: Path) -> None:
     save_joblib(store_data, OUTPUT_DIR / "store_data.joblib")
 
 def extract_base() -> None:
-    zip_path = DATA_DIR / "rossmann-store-sales.zip"
+    zip_path = DATA_DIR / "zip/rossmann-store-sales.zip"
 
     try:
         extract_zip(zip_path, EXTRACT_DIR)

@@ -12,7 +12,7 @@ You are provided with historical sales data for 1,115 Rossmann stores. The task 
 
 i opt to enirich data with 3 additional sources: weather, store states and store states google trend
 
-python -m v2.extracting.main
+python -m v3.extracting.main
 
 v2/
 ├── main.py                           # Główne wejście do pipeline'u

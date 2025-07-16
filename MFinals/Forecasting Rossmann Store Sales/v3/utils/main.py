@@ -5,6 +5,8 @@ import zipfile
 import logging
 from joblib import dump
 
+from v3.constants.main import EVENT_CATEGORIES, STATE_ABBREVIATIONS
+
 logger = logging.getLogger(__name__)
 
 def extract_zip(zip_path: Path, extract_to: Path) -> None:
@@ -33,3 +35,15 @@ def save_joblib(data, path: Path) -> None:
         logger.info(f"Saved data to {path}")
     except Exception as e:
         logger.exception(f"Failed to save data to {path}: {e}")
+
+def normalize(value: int, offset: int, scale: int) -> float:
+    return (value - offset) / scale
+
+def event_to_int(event: str) -> int:
+    try:
+        return EVENT_CATEGORIES.index(event)
+    except ValueError:
+        return 0
+
+def state_name_to_abbreviation(state_name: str) -> str:
+    return STATE_ABBREVIATIONS.get(state_name, 'UNKNOWN')
