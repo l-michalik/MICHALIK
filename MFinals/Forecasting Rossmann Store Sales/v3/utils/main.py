@@ -140,3 +140,52 @@ def safe_int(val: Any, default=0) -> int:
         return int(val)
     except (ValueError, TypeError):
         return default
+
+def transform_competition_year(years: np.ndarray) -> np.ndarray:
+    years = years.copy()
+    return np.where(years < 2000, 1, years - 1998)
+
+def transform_promo2_year(years: np.ndarray) -> np.ndarray:
+    years = years.copy()
+    shifted = years - 2008
+    return np.where(shifted < 0, 0, shifted)
+
+def split_features(X: np.ndarray) -> list[np.ndarray]:
+    X = np.asarray(X)
+    X_list = [
+        X[..., [1]] - 1,
+        X[..., [2]] - 1,
+        X[..., [3]],
+        X[..., [4]] - 2013,
+        X[..., [5]] - 1,
+        X[..., [6]] - 1,
+        X[..., [7]],
+        X[..., [8]],
+        X[..., [9]],
+        X[..., [10]],
+        X[..., [11]],
+        X[..., [12]],
+        X[..., [13]],
+        X[..., [14]],
+        X[..., [15]],
+        transform_competition_year(X[..., [16]]),
+        transform_promo2_year(X[..., [17]]),
+        X[..., [18]],
+        X[..., [19]] - 1,
+        X[..., [20, 21, 22]],
+        X[..., [23, 24, 25]],
+        X[..., [26, 27]],
+        X[..., [28]],
+        X[..., [29]],
+        X[..., [30]] - 1,
+        X[..., [31]] - 1,
+        X[..., [32]] - 1,
+        X[..., [33]] - 1,
+        X[..., [34]],
+        X[..., [35]],
+        X[..., [36]] - 1,
+        X[..., [37]] - 1,
+        X[..., [38]],
+        X[..., [39]]
+    ]
+    return X_list

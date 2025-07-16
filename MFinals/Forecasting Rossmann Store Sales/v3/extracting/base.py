@@ -7,7 +7,7 @@ from v3.config import Config
 
 DATA_DIR = Config.DATA_DIR
 JOBLIB_DIR = Config.JOBLIB_DIR
-EXTRACT_DIR = Config.EXTRACT_DIR
+CSV_DIR = Config.CSV_DIR
 
 logger = logging.getLogger(__name__)
 
@@ -33,7 +33,7 @@ def extract_base() -> None:
     zip_path = DATA_DIR / "zip/rossmann-store-sales.zip"
 
     try:
-        extract_zip(zip_path, EXTRACT_DIR)
+        extract_zip(zip_path, CSV_DIR)
     except Exception as e:
         logger.error(f"Error extracting zip file: {e}")
         return
@@ -46,13 +46,13 @@ def extract_base() -> None:
 
     for label, (files, handler) in tasks.items():
         if isinstance(files, tuple):
-            paths = [EXTRACT_DIR / f for f in files]
+            paths = [CSV_DIR / f for f in files]
             if all(p.exists() for p in paths):
                 handler(*paths)
             else:
                 logger.warning(f"Missing one or more files for {label}: {files}")
         else:
-            path = EXTRACT_DIR / files
+            path = CSV_DIR / files
             if path.exists():
                 handler(path)
             else:
