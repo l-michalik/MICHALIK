@@ -1,9 +1,10 @@
 from pathlib import Path
-from typing import List, Dict
+from typing import List, Dict, Tuple
 import csv
 import zipfile
 import logging
 from joblib import dump
+from datetime import datetime
 
 from v3.constants.main import EVENT_CATEGORIES, STATE_ABBREVIATIONS
 
@@ -47,3 +48,31 @@ def event_to_int(event: str) -> int:
 
 def state_name_to_abbreviation(state_name: str) -> str:
     return STATE_ABBREVIATIONS.get(state_name, 'UNKNOWN')
+
+def extract_state_code_from_filename(filename: str) -> str:
+    state = Path(filename).stem
+    state_code = state[-2:]
+    return 'HB,NI' if state_code == 'NI' else state_code
+
+def parse_trend_file(
+    filepath: Path,
+    trend_data: Dict[Tuple[str, int, int], float]
+) -> None:
+    state_code = extract_state_code_from_filename(filepath)
+
+    try:
+        with filepath.open(newline='', encoding='utf-8') as f:
+            reader = csv.reader(f)
+            next(reader, None)
+
+            for row_num, row in enumerate(reader, start=2):
+                try:
+                    trend_value = int(row[1])
+                    end_date_str = row[0].split(" - ")[1]
+                    dt = datetime.strptime(end_date_str, "%Y-%m-%d")
+                    year, week = dt.year, dt.isocalendar()[1]
+                    trend_data[(state_code, year, week)] = trend_value / 100
+                except (IndexError, ValueError) as e:
+                    logger.warning(f"[{filepath}:{row_num}] Skipping row due to error: {e}")
+    except Exception as e:
+        logger.error(f"Failed to parse {filepath}: {e}")
