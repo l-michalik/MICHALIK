@@ -10,7 +10,7 @@ from v3.config import Config
 from v3.utils.main import save_joblib
 
 DATA_DIR = Config.DATA_DIR
-OUTPUT_DIR = Config.OUTPUT_DIR
+JOBLIB_DIR = Config.JOBLIB_DIR
 
 logger = logging.getLogger(__name__)
 
@@ -122,7 +122,7 @@ def extract_forwardback(window_size: int = 7) -> None:
     store_ids = np.unique(train_df["Store"])
 
     fb_dict: Dict[Tuple[int, np.datetime64], np.ndarray] = {}
-    output_path = OUTPUT_DIR / "forwardback.joblib"  # <-- PRZENIESIONE wyżej, by było znane przed zapisem
+    output_path = JOBLIB_DIR / "forwardback.joblib"  # <-- PRZENIESIONE wyżej, by było znane przed zapisem
 
     for source_name, df in [("train", train_df), ("test", test_df)]:
         start_time = time.time()

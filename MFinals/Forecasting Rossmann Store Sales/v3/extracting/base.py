@@ -6,7 +6,7 @@ from v3.utils.main import extract_zip, read_csv_to_dicts, save_joblib
 from v3.config import Config
 
 DATA_DIR = Config.DATA_DIR
-OUTPUT_DIR = Config.OUTPUT_DIR
+JOBLIB_DIR = Config.JOBLIB_DIR
 EXTRACT_DIR = Config.EXTRACT_DIR
 
 logger = logging.getLogger(__name__)
@@ -14,11 +14,11 @@ logger = logging.getLogger(__name__)
 def process_train_data(filepath: Path) -> None:
     data = read_csv_to_dicts(filepath)
     data.reverse()
-    save_joblib(data, OUTPUT_DIR / "train_data.joblib")
+    save_joblib(data, JOBLIB_DIR / "train_data.joblib")
 
 def process_test_data(filepath: Path) -> None:
     data = read_csv_to_dicts(filepath)
-    save_joblib(data, OUTPUT_DIR / "test_data.joblib")
+    save_joblib(data, JOBLIB_DIR / "test_data.joblib")
 
 def process_store_data(store_path: Path, state_path: Path) -> None:
     store_data = read_csv_to_dicts(store_path, fill_missing=True)
@@ -27,7 +27,7 @@ def process_store_data(store_path: Path, state_path: Path) -> None:
     for store, state in zip(store_data, state_data):
         store["State"] = state.get("State", "Unknown")
 
-    save_joblib(store_data, OUTPUT_DIR / "store_data.joblib")
+    save_joblib(store_data, JOBLIB_DIR / "store_data.joblib")
 
 def extract_base() -> None:
     zip_path = DATA_DIR / "zip/rossmann-store-sales.zip"

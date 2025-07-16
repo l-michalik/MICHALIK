@@ -7,7 +7,7 @@ from v3.utils.main import normalize, event_to_int, state_name_to_abbreviation, s
 from v3.config import Config
 
 DATA_DIR = Config.DATA_DIR
-OUTPUT_DIR = Config.OUTPUT_DIR
+JOBLIB_DIR = Config.JOBLIB_DIR
 
 logger = logging.getLogger(__name__)
 
@@ -62,7 +62,7 @@ def extract_weather() -> None:
     for filepath in csv_files:
         parse_weather_file(filepath, weather_data, observed_events)
 
-    save_joblib(weather_data, OUTPUT_DIR / "weather.joblib")
+    save_joblib(weather_data, JOBLIB_DIR / "weather.joblib")
 
 if __name__ == "__main__":
     extract_weather()

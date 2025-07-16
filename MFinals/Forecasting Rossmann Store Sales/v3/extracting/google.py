@@ -6,7 +6,7 @@ from v3.utils.main import parse_trend_file, save_joblib
 from v3.config import Config
 
 DATA_DIR = Config.DATA_DIR
-OUTPUT_DIR = Config.OUTPUT_DIR
+JOBLIB_DIR = Config.JOBLIB_DIR
 
 logger = logging.getLogger(__name__)
 
@@ -23,7 +23,7 @@ def extract_google(csv_dir: Path = Path("data/googletrend")) -> None:
     for file in trend_files:
         parse_trend_file(file, trends)
 
-    save_joblib(trends, OUTPUT_DIR / "google.joblib")
+    save_joblib(trends, JOBLIB_DIR / "google.joblib")
 
 
 if __name__ == "__main__":
