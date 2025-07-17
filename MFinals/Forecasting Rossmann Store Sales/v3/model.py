@@ -14,7 +14,7 @@ from v3.utils.main import save_joblib
 JOBLIB_DIR = Config.JOBLIB_DIR
 CSV_DIR = Config.CSV_DIR
 
-TRAIN_RATIO = 0.00003
+TRAIN_RATIO = 0.00005
 
 sys.setrecursionlimit(10000)
 
@@ -78,6 +78,7 @@ def write_submission_csv(
             f.write(f"{i + 1},{prediction:.2f}\n")
 
 def main():
+    print("Loading training dataset...")
     X, y = load_dataset(JOBLIB_DIR / "feature_train_data.joblib")
     models = train_model_ensemble(X, y, TRAIN_RATIO)
     save_joblib(models, JOBLIB_DIR / "model.joblib")
@@ -88,7 +89,7 @@ def main():
 
     test_X = load_dataset(JOBLIB_DIR / "feature_test_data.joblib")
     write_submission_csv(models, test_X, CSV_DIR / "predictions.csv")
-    print(f"Submission saved to {CSV_DIR / "predictions.csv"}")
+    print(f"Submission saved to {CSV_DIR / 'predictions.csv'}")
 
 if __name__ == '__main__':
     main()
