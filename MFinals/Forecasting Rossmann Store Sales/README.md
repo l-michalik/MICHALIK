@@ -45,3 +45,9 @@ v2/
 └── README.md
 
 przepisz go wysokiej klasy kod jakby pisal go senior python developer i nie rob tego na slepo tylko sie zastanow czy ten kod nie jest przestarzaly i np. formy zapisu pickle sa dobre - zrob to najlepiej jak sie da i ma to byc na miare 2025 roku, jesli cos nadaje sie do wydzielenia do utils to zaznacz to
+---
+@TODO make only ten rows or all dependent from config param
+---
+- first undarstand the data then do eda
+---
+[10:00] - https://www.youtube.com/watch?v=8UwhoPOO9I0
