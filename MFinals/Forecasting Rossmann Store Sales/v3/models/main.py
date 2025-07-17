@@ -1,7 +1,7 @@
 import math
 import numpy as np
 from pathlib import Path
-from joblib import load 
+from joblib import load , dump
 from keras.models import Model
 from keras.layers import (
     Input, Embedding, Dense, Dropout, Reshape, Concatenate
@@ -76,7 +76,11 @@ class NN_with_EntityEmbedding(ModelBase):
 
         def embed(name, input_dim, output_dim):
             inp = Input(shape=(1,), name=name)
-            emb = Embedding(input_dim, output_dim)(inp)
+            emb_layer = Embedding(input_dim, output_dim, name=f"embedding_{name}")
+            emb = emb_layer(inp)
+
+            setattr(self, f"embedding_{name}", emb_layer)  # expose for later inspection
+
             inputs.append(inp)
             embeddings.append(Reshape((output_dim,))(emb))
 

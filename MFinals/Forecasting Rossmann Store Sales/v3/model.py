@@ -3,6 +3,7 @@ from pathlib import Path
 from typing import List, Tuple, Union
 import numpy as np
 import joblib
+from joblib import dump
 from v3.models.main import NN_with_EntityEmbedding
 import sys
 from pathlib import Path
@@ -80,16 +81,20 @@ def write_submission_csv(
 def main():
     print("Loading training dataset...")
     X, y = load_dataset(JOBLIB_DIR / "feature_train_data.joblib")
+    
     models = train_model_ensemble(X, y, TRAIN_RATIO)
-    save_joblib(models, JOBLIB_DIR / "model.joblib")
+    dump(models, JOBLIB_DIR / "model_with_embeddings.joblib")
 
-    print("Evaluating model ensemble...")
-    rmse = evaluate_ensemble_rmse(models, X, y)
-    print(f"RMSE: {rmse:.4f}")
+    models_slim = [m.model for m in models]
+    dump(models_slim, JOBLIB_DIR / "model.joblib")
 
-    test_X = load_dataset(JOBLIB_DIR / "feature_test_data.joblib")
-    write_submission_csv(models, test_X, CSV_DIR / "predictions.csv")
-    print(f"Submission saved to {CSV_DIR / 'predictions.csv'}")
+    # print("Evaluating model ensemble...")
+    # rmse = evaluate_ensemble_rmse(models, X, y)
+    # print(f"RMSE: {rmse:.4f}")
+
+    # test_X = load_dataset(JOBLIB_DIR / "feature_test_data.joblib")
+    # write_submission_csv(models, test_X, CSV_DIR / "predictions.csv")
+    # print(f"Submission saved to {CSV_DIR / 'predictions.csv'}")
 
 if __name__ == '__main__':
     main()
