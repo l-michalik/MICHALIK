@@ -9,6 +9,10 @@ import pandas as pd
 from datetime import datetime
 from isoweek import Week
 import math
+from v3.config.main import Config
+import itertools
+
+LOAD_SIZE = Config.LOAD_SIZE
 
 from v3.constants.main import EVENT_CATEGORIES, STATE_ABBREVIATIONS
 
@@ -24,7 +28,7 @@ def extract_zip(zip_path: Path, extract_to: Path) -> None:
 def read_csv_to_dicts(filepath: Path, fill_missing: bool = False) -> List[Dict[str, str]]:
     with filepath.open(newline='', encoding='utf-8') as f:
         reader = csv.DictReader(f)
-        data = list(reader)
+        data = list(itertools.islice(reader, LOAD_SIZE))  # ograniczenie do LOAD_SIZE
 
     if fill_missing:
         for row in data:
@@ -33,9 +37,22 @@ def read_csv_to_dicts(filepath: Path, fill_missing: bool = False) -> List[Dict[s
                     row[key] = '0'
     return data
 
+def read_csv_file(filepath: Path) -> pd.DataFrame:
+    try:
+        df = pd.read_csv(filepath, nrows=LOAD_SIZE, parse_dates=True)
+        logger.info(f"Loaded CSV data from {filepath}")
+        return df
+    except Exception as e:
+        logger.error(f"Failed to read CSV file {filepath}: {e}")
+        raise
+
 def save_joblib(data, path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     try:
+        # if isinstance(data, pd.DataFrame):
+        #     data = data.head(LOAD_SIZE)
+        # elif isinstance(data, list):
+        #     data = data[:LOAD_SIZE]
         dump(data, path)
         logger.info(f"Saved data to {path}")
     except Exception as e:

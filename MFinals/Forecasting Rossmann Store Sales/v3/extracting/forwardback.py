@@ -7,7 +7,7 @@ from joblib import dump
 import time
 
 from v3.config import Config
-from v3.utils.main import save_joblib
+from v3.utils.main import save_joblib, read_csv_file
 
 DATA_DIR = Config.DATA_DIR
 JOBLIB_DIR = Config.JOBLIB_DIR
@@ -35,7 +35,7 @@ class SmartTimestampAccessor:
         return self.timestamps[0], self.timestamps[-1]
 
 def generate_forward_backward_matrix(csv_path: str, window_size: int = 14) -> np.ndarray:
-    df = pd.read_csv(csv_path)
+    df = read_csv_file(csv_path)
     columns = ["Promo", "StateHoliday", "SchoolHoliday"]
     values = df[columns].to_numpy()
     n_obs, n_cols = values.shape
@@ -117,12 +117,12 @@ def generate_features_for_store(
     return np.array(data_rows).T, feature_names
 
 def extract_forwardback(window_size: int = 7) -> None:
-    train_df = pd.read_csv(DATA_DIR / "csv/train.csv", low_memory=False)
-    test_df = pd.read_csv(DATA_DIR / "csv/test.csv", low_memory=False)
+    train_df = read_csv_file(DATA_DIR / "csv/train.csv")
+    test_df = read_csv_file(DATA_DIR / "csv/test.csv")
     store_ids = np.unique(train_df["Store"])
 
     fb_dict: Dict[Tuple[int, np.datetime64], np.ndarray] = {}
-    output_path = JOBLIB_DIR / "forwardback.joblib"  # <-- PRZENIESIONE wyżej, by było znane przed zapisem
+    output_path = JOBLIB_DIR / "forwardback.joblib"
 
     for source_name, df in [("train", train_df), ("test", test_df)]:
         start_time = time.time()
@@ -140,7 +140,7 @@ def extract_forwardback(window_size: int = 7) -> None:
             if now - last_log_time >= 5:
                 percent = (i / total) * 100
                 logger.info(f"{source_name}: {i}/{total} stores processed ({percent:.1f}%)")
-                print(f"[4] ...({percent:.1f}%)")
+                print(f"...({percent:.1f}%)")
                 last_log_time = now
 
         logger.info(f"Processed {source_name} features for {total} stores")

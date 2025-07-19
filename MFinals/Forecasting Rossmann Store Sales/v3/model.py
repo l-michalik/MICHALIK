@@ -15,7 +15,7 @@ from v3.utils.main import save_joblib
 JOBLIB_DIR = Config.JOBLIB_DIR
 CSV_DIR = Config.CSV_DIR
 
-TRAIN_RATIO = 0.00005
+TRAIN_RATIO = 0.9
 
 sys.setrecursionlimit(10000)
 
@@ -23,10 +23,6 @@ def load_dataset(path: Path) -> Union[Tuple[List, List], List]:
     if not path.exists():
         raise FileNotFoundError(f"File not found: {path}")
     return joblib.load(path)
-
-def save_model_ensemble(models: List[NN_with_EntityEmbedding], path: Path) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    joblib.dump(models, path)
 
 def train_model_ensemble(
     X: List[List[float]],
@@ -74,27 +70,32 @@ def write_submission_csv(
     with output_file.open('w') as f:
         f.write("Id,Sales\n")
         for i, record in enumerate(test_features):
+            if not record:
+                print(f"⚠️ Skipped empty record at index {i}")
+                continue
+
             is_open = record[0]
             prediction = np.mean([m.guess(record) for m in models]) if is_open else 0
             f.write(f"{i + 1},{prediction:.2f}\n")
 
-def main():
+
+def model():
     print("Loading training dataset...")
     X, y = load_dataset(JOBLIB_DIR / "feature_train_data.joblib")
     
     models = train_model_ensemble(X, y, TRAIN_RATIO)
-    dump(models, JOBLIB_DIR / "model_with_embeddings.joblib")
+    save_joblib(models, JOBLIB_DIR / "model_with_embeddings.joblib")
 
     models_slim = [m.model for m in models]
-    dump(models_slim, JOBLIB_DIR / "model.joblib")
+    save_joblib(models_slim, JOBLIB_DIR / "model.joblib")
 
-    # print("Evaluating model ensemble...")
-    # rmse = evaluate_ensemble_rmse(models, X, y)
-    # print(f"RMSE: {rmse:.4f}")
+    print("Evaluating model ensemble...")
+    rmse = evaluate_ensemble_rmse(models, X, y)
+    print(f"RMSE: {rmse:.4f}")
 
-    # test_X = load_dataset(JOBLIB_DIR / "feature_test_data.joblib")
-    # write_submission_csv(models, test_X, CSV_DIR / "predictions.csv")
-    # print(f"Submission saved to {CSV_DIR / 'predictions.csv'}")
+    test_X = load_dataset(JOBLIB_DIR / "feature_test_data.joblib")
+    write_submission_csv(models, test_X, CSV_DIR / "predictions.csv")
+    print(f"Submission saved to {CSV_DIR / 'predictions.csv'}")
 
 if __name__ == '__main__':
-    main()
+    model()
