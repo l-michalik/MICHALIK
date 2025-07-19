@@ -1,6 +1,14 @@
 ## Target
 You are provided with historical sales data for 1,115 Rossmann stores. The task is to forecast the "Sales" column for the test set. Note that some stores in the dataset were temporarily closed for refurbishment.
 
+## Install ZenML
+👉 https://docs.zenml.io/getting-started/installation
+
+zenml integration install mlflow -y
+zenml experiment-tracker register mlflow_tracker --flavor=mlflow
+zenml model-deployer register mlflow --flavor=mlflow
+zenml stack register local-mlflow-stack -a default -o default -d mlflow -e mlflow_tracker --set
+
 ## Source
 @misc{rossmann-store-sales,
     author = {FlorianKnauer and Will Cukierski},
