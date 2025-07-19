@@ -36,10 +36,17 @@ class ZipDataIngestor(DataIngestor):
 
         dataframes = []
         for path in csv_files:
-            df = pd.read_csv(path)
-            dataframes.append(df)
+            df = None
+            for encoding in ["utf-8", "ISO-8859-1", "cp1252"]:
+                try:
+                    df = pd.read_csv(path, encoding=encoding, low_memory=False)
 
-        print(f"Extracted {len(dataframes)} CSV files")
+                    break
+                except UnicodeDecodeError:
+                    continue
+            if df is None:
+                raise UnicodeDecodeError(f"Could not decode file: {path}")
+            dataframes.append(df)
 
         return dataframes
 
@@ -51,7 +58,7 @@ class DataIngestorFactory:
         raise ValueError(f"Unsupported file extension: {file_extension}")
 
 if __name__ == "__main__":
-    zip_path = os.path.join("extracted_data", "archive.zip")
+    zip_path = os.path.join("data", "archive.zip")
     _, file_extension = os.path.splitext(zip_path)
     ingestor = DataIngestorFactory.get_data_ingestor(file_extension)
     dfs = ingestor.ingest(zip_path)
