@@ -37,6 +37,3 @@ class DataInspector:
 
     def execute_inspection(self, df: pd.DataFrame) -> None:
         self._strategy.inspect(df)
-
-if __name__ == "__main__":
-    pass
