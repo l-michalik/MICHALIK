@@ -14,3 +14,15 @@ from .univariate_analysis import (
     NumericalUnivariateAnalysis,
     CategoricalUnivariateAnalysis,
 )
+
+from .bivariate_analysis import (
+    BivariateAnalysisStrategy,
+    NumericalVsNumericalAnalysis,
+    CategoricalVsNumericalAnalysis,
+    BivariateAnalyzer
+)
+
+from .multivariate_analysis import (
+    MultivariateAnalysisTemplate,
+    SimpleMultivariateAnalysis
+)
