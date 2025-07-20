@@ -48,7 +48,7 @@ class ZipDataIngestor(DataIngestor):
         if df is None:
             raise UnicodeDecodeError(f"Could not decode file: {train_csv_path}")
 
-        return [df]
+        return df
 
 class DataIngestorFactory:
     @staticmethod

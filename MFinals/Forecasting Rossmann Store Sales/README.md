@@ -53,9 +53,18 @@ v2/
 └── README.md
 
 przepisz go wysokiej klasy kod jakby pisal go senior python developer i nie rob tego na slepo tylko sie zastanow czy ten kod nie jest przestarzaly i np. formy zapisu pickle sa dobre - zrob to najlepiej jak sie da i ma to byc na miare 2025 roku, jesli cos nadaje sie do wydzielenia do utils to zaznacz to
----
-@TODO make only ten rows or all dependent from config param
+
+
+\\
+- czemu taka libka a nie inna
+\\
+
 ---
 - first undarstand the data then do eda
+
+- ```export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES \n zenml up```
+
+-
+
 ---
 [1:42:35] - https://www.youtube.com/watch?v=8UwhoPOO9I0
