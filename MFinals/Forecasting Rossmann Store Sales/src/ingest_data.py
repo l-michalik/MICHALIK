@@ -25,30 +25,30 @@ class ZipDataIngestor(DataIngestor):
         with zipfile.ZipFile(file_path, "r") as zip_ref:
             zip_ref.extractall(extract_dir)
 
-        csv_files = []
+        train_csv_path = None
         for root, _, files in os.walk(extract_dir):
             for f in files:
-                if f.endswith(".csv"):
-                    csv_files.append(os.path.join(root, f))
-
-        if not csv_files:
-            raise FileNotFoundError("No CSV files found")
-
-        dataframes = []
-        for path in csv_files:
-            df = None
-            for encoding in ["utf-8", "ISO-8859-1", "cp1252"]:
-                try:
-                    df = pd.read_csv(path, encoding=encoding, low_memory=False)
-
+                if f == "train.csv":
+                    train_csv_path = os.path.join(root, f)
                     break
-                except UnicodeDecodeError:
-                    continue
-            if df is None:
-                raise UnicodeDecodeError(f"Could not decode file: {path}")
-            dataframes.append(df)
+            if train_csv_path:
+                break
 
-        return dataframes
+        if not train_csv_path:
+            raise FileNotFoundError("train.csv not found in the zip archive")
+
+        df = None
+        for encoding in ["utf-8", "ISO-8859-1", "cp1252"]:
+            try:
+                df = pd.read_csv(train_csv_path, encoding=encoding, low_memory=False)
+                break
+            except UnicodeDecodeError:
+                continue
+
+        if df is None:
+            raise UnicodeDecodeError(f"Could not decode file: {train_csv_path}")
+
+        return [df]
 
 class DataIngestorFactory:
     @staticmethod

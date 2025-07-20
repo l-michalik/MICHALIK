@@ -58,4 +58,4 @@ przepisz go wysokiej klasy kod jakby pisal go senior python developer i nie rob 
 ---
 - first undarstand the data then do eda
 ---
-[10:00] - https://www.youtube.com/watch?v=8UwhoPOO9I0
+[1:42:35] - https://www.youtube.com/watch?v=8UwhoPOO9I0
