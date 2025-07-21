@@ -43,7 +43,8 @@ def model_building_step(
     ])
 
     mlflow.sklearn.autolog()
-    with mlflow.start_run():
+    with mlflow.start_run(nested=True):
+
         pipeline.fit(X_train, y_train)
 
         encoder = pipeline.named_steps["preprocessor"].transformers_[1][1].named_steps["onehot"]
