@@ -62,9 +62,10 @@ przepisz go wysokiej klasy kod jakby pisal go senior python developer i nie rob 
 ---
 - first undarstand the data then do eda
 
-- ```export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES \n zenml up```
+- ```export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES 
+zenml up```
 
 -
 
 ---
-[1:42:35] - https://www.youtube.com/watch?v=8UwhoPOO9I0
+[2:05:00] - https://www.youtube.com/watch?v=8UwhoPOO9I0
