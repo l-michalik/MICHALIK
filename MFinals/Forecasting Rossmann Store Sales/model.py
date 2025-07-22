@@ -78,7 +78,7 @@ def write_submission_csv(
 
             is_open = record[0]
             prediction = np.mean([m.guess(record) for m in models]) if is_open else 0
-            f.write(f"{i + 1},{prediction:.2f}\n")
+            f.write(f"{i + 1},{prediction:.0f}\n")
 
 
 def model():
