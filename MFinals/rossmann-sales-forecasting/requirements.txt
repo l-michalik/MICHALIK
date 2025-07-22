@@ -1,5 +1,0 @@
-zenml[server]>=0.50.0
-notebook
-scikit-learn
-pyarrow
-pandas
