@@ -4,13 +4,15 @@ from typing import List, Tuple, Union
 import numpy as np
 import joblib
 from joblib import dump
-from v3.models.main import NN_with_EntityEmbedding
+from models.main import NN_with_EntityEmbedding
 import sys
 from pathlib import Path
-from v3.config import Config
+from config import Config
 import time
 import threading
-from v3.utils.main import save_joblib
+from utils.main import save_joblib
+from extracting.main import extract
+from preparing.main import prepare
 
 JOBLIB_DIR = Config.JOBLIB_DIR
 CSV_DIR = Config.CSV_DIR
@@ -80,6 +82,10 @@ def write_submission_csv(
 
 
 def model():
+    extract()
+    
+    prepare()
+    
     print("Loading training dataset...")
     X, y = load_dataset(JOBLIB_DIR / "feature_train_data.joblib")
     

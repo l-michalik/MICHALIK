@@ -9,12 +9,17 @@ import pandas as pd
 from datetime import datetime
 from isoweek import Week
 import math
-from v3.config.main import Config
+from config.main import Config
 import itertools
 
 LOAD_SIZE = Config.LOAD_SIZE
 
-from v3.constants.main import EVENT_CATEGORIES, STATE_ABBREVIATIONS
+from constants.main import EVENT_CATEGORIES, STATE_ABBREVIATIONS
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+)
 
 logger = logging.getLogger(__name__)
 

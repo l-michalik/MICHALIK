@@ -6,10 +6,10 @@ import numpy as np
 from joblib import dump
 import time
 
-from v3.config import Config
-from v3.utils.main import save_joblib, read_csv_file
+from config import Config
+from utils.main import save_joblib, read_csv_file
 
-DATA_DIR = Config.DATA_DIR
+CSV_DIR = Config.CSV_DIR
 JOBLIB_DIR = Config.JOBLIB_DIR
 
 logger = logging.getLogger(__name__)
@@ -117,8 +117,8 @@ def generate_features_for_store(
     return np.array(data_rows).T, feature_names
 
 def extract_forwardback(window_size: int = 7) -> None:
-    train_df = read_csv_file(DATA_DIR / "csv/train.csv")
-    test_df = read_csv_file(DATA_DIR / "csv/test.csv")
+    train_df = read_csv_file(CSV_DIR / "rossmann-store-sales/train.csv")
+    test_df = read_csv_file(CSV_DIR / "rossmann-store-sales/test.csv")
     store_ids = np.unique(train_df["Store"])
 
     fb_dict: Dict[Tuple[int, np.datetime64], np.ndarray] = {}

@@ -2,16 +2,16 @@ import logging
 from pathlib import Path
 from typing import Dict, Tuple
 
-from v3.utils.main import parse_trend_file, save_joblib
-from v3.config import Config
+from utils.main import parse_trend_file, save_joblib
+from config import Config
 
-DATA_DIR = Config.DATA_DIR
+CSV_DIR = Config.CSV_DIR
 JOBLIB_DIR = Config.JOBLIB_DIR
 
 logger = logging.getLogger(__name__)
 
 def extract_google(csv_dir: Path = Path("data/googletrend")) -> None:
-    csv_dir = DATA_DIR / 'google'
+    csv_dir = CSV_DIR / 'google'
     trend_files = list(csv_dir.glob("*.csv"))
 
     if not trend_files:

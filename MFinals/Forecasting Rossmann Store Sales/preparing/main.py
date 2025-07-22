@@ -1,5 +1,5 @@
 import logging
-from v3.preparing import prepare_dataset
+from preparing import prepare_dataset
 
 logger = logging.getLogger(__name__)
 

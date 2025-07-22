@@ -8,8 +8,8 @@ from keras.layers import (
 )
 from keras.optimizers import Adam
 from sklearn.preprocessing import StandardScaler
-from v3.utils.main import split_features
-from v3.config import Config
+from utils.main import split_features
+from config import Config
 
 JOBLIB_DIR = Config.JOBLIB_DIR
 

@@ -3,10 +3,11 @@ import csv
 from pathlib import Path
 from typing import Dict, List, Set, Tuple
 
-from v3.utils.main import normalize, event_to_int, state_name_to_abbreviation, save_joblib
-from v3.config import Config
+from utils.main import normalize, event_to_int, state_name_to_abbreviation, save_joblib
+from config import Config
 
 DATA_DIR = Config.DATA_DIR
+CSV_DIR = Config.CSV_DIR
 JOBLIB_DIR = Config.JOBLIB_DIR
 
 logger = logging.getLogger(__name__)
@@ -49,7 +50,7 @@ def parse_weather_file(
         logger.error(f"Failed to read file {filepath}: {e}")
 
 def extract_weather() -> None:
-    csv_dir = DATA_DIR / 'weather'
+    csv_dir = CSV_DIR / 'weather'
     csv_files = list(csv_dir.glob('*.csv'))
 
     if not csv_files:

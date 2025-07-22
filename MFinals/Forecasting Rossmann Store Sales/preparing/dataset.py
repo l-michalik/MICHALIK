@@ -5,13 +5,13 @@ from typing import Tuple, List, Dict
 import math
 from joblib import load, dump
 
-from v3.utils.main import (
+from utils.main import (
     safe_int, abc2int, state2int, promo_interval2int,
     has_competition_months, has_promo2_weeks, latest_promo2_months, save_joblib
 )
 
 logger = logging.getLogger(__name__)
-from v3.config import Config
+from config import Config
 
 JOBLIB_DIR = Config.JOBLIB_DIR
 

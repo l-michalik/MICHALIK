@@ -1,5 +1,5 @@
 import logging
-from v3.extracting import extract_base, extract_weather, extract_google, extract_forwardback
+from extracting import extract_base, extract_weather, extract_google, extract_forwardback
 
 logger = logging.getLogger(__name__)
 
