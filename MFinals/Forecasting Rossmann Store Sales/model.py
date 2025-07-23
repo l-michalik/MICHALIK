@@ -17,7 +17,7 @@ from preparing.main import prepare
 JOBLIB_DIR = Config.JOBLIB_DIR
 CSV_DIR = Config.CSV_DIR
 
-TRAIN_RATIO = 0.9
+TRAIN_RATIO = 0.97
 
 sys.setrecursionlimit(10000)
 
