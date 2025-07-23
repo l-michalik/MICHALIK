@@ -29,24 +29,30 @@ This section will evolve as I build and refine my toolkit:
 - Uvicorn, dotenv  
 
 ### Data & Visualization
-- pandas, datasets  
+- pandas, numpy, datasets  
 - Matplotlib, seaborn (when needed)  
 
 ### Machine Learning
-- Scikit-learn 
-- Experimentation with vector similarity techniques  
+- Scikit-learn  
+- Model training pipelines with custom preprocessing  
+- Feature engineering (forward/backward time features, holidays, promotions, embeddings)  
+- Statistical model evaluation (Jarque-Bera, t-test, Wald test, time series diagnostics)  
 
 ### Deep Learning
-- HuggingFace Transformers  
+- Keras (Sequential API)  
+- Entity Embeddings for categorical features  
 - Mistral, LLaMA2, Gemini  
 - OpenAI GPT APIs  
 
 ### Deployment
 - Docker  
-- Uvicorn  
+- FastAPI, Uvicorn  
 
 ### MLOps & Tooling
 - Local and cloud vector databases: FAISS, Weaviate, Pinecone  
+- Modular pipeline design (utils, main logic separation)  
+- Model serialization with  `joblib`  
+- Experiment tracking and reproducibility  
 
 ---
 
@@ -56,7 +62,8 @@ I'm currently focusing on:
 - Implementing ML algorithms from scratch  
 - Experimenting with deep learning models (NLP & CV)  
 - Building small end-to-end projects and APIs  
-- Learning model deployment and tracking tools (FastAPI, MLflow, Docker)
+- Learning model deployment and tracking tools (FastAPI, MLflow, Docker)  
+- Extending production-grade pipelines for tabular data and vector search  
 
 ---
 
