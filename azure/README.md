@@ -1,7 +1,5 @@
-# Azure
-
-## 01
+### 01
 Cloud computing is a service delivery model over the internet (the cloud), offering a range of services including compute power (such as Windows or Linux servers and hosting environments), storage (files and databases), networking (both within Azure and external connections to company networks), and analytics services for visualization and telemetry data. Key concepts in cloud computing include scalability, which refers to the ability to allocate and deallocate resources as needed; elasticity, which means dynamically scaling resources based on demand; and agility, the capacity to react and adapt quickly to changes. Fault tolerance ensures that the system remains operational even when some components fail, while disaster recovery involves designing systems that can recover from natural or human-induced disasters. Finally, high availability refers to the expected operational uptime of a system, typically calculated using the formula:
 availability = uptime / (uptime + downtime).
 
----
+### 02
