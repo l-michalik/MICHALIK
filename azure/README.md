@@ -27,3 +27,38 @@ An Azure Resource is an object used to manage and operate cloud services, repres
 Virtualization refers to the emulation of physical machines, allowing different virtual hardware and operating systems to run independently on the same physical host. Each virtual environment is fully isolated in terms of file systems, services, ports, middleware, and configuration. In Azure, Virtual Machines (VMs) are an IaaS offering that provides full control over the OS and software, making them ideal for custom configurations and lift-and-shift scenarios. Virtual Machine Scale Sets extend this by allowing auto-scaled deployments of identical VMs, suitable for web services and batch processing. Containers, in contrast, use the host's OS and are more lightweight and responsive, with lower compute and maintenance overhead. Azure Container Instances offer a fast, serverless way to run simple containers (PaaS), while Azure Kubernetes Service (AKS) is a powerful, open-source container orchestration platform designed for complex and scalable deployments. App Service is a PaaS solution for enterprise-grade web apps, supporting multiple languages and container options. Lastly, Azure Functions (also PaaS) provide serverless execution for microservices, offering both consumption-based and dedicated pricing plans, making them ideal for lightweight, event-driven workloads.
 
 ### 10
+In Azure, networking services allow seamless connectivity between cloud and on-premises environments while offering scalability, security, and performance. An Azure Virtual Network (VNet) is a logically isolated environment for deploying and managing networked resources, segmented into subnets for better organization and control. VNets are scoped to a single region but can communicate across regions via VNet peering. Key functions include isolation, segmentation, routing, filtering, and communication. The Azure Load Balancer distributes traffic evenly across resources, supporting both TCP and UDP protocols for internal and external traffic, enabling high availability and scalability with millions of simultaneous flows. A VPN Gateway connects on-premises networks to Azure over the public internet securely. The Application Gateway acts as a web traffic load balancer and includes features like a Web Application Firewall (WAF), SSL termination, session affinity, URL-based routing, and redirection. The Content Delivery Network (CDN) is used to minimize latency by distributing content to users via a globally distributed network of Points of Presence (PoPs). Together, these services replicate on-premises networking functionality in the cloud while enabling performance, security, and flexibility at scale.
+
+### 11
+Azure supports three main data types: Structured data, which follows strict schemas and is typically used in relational databases; Semi-structured data, which is more flexible and lacks rigid schema rules but still includes identifiable keys (common in NoSQL); and Unstructured data, such as media files, documents, or binaries. Azure’s Storage Account is a scalable and durable service that includes Blob Storage, Queue Storage, Table Storage, and File Storage, enabling storage of files, messages, and semi-structured data at petabyte scale with up to 16 nines of durability. Blob Storage is used for storing binary large objects (BLOBs) like images or videos and supports three tiers: Hot (frequent access), Cool (infrequent), and Archive (rare). Queue Storage is designed for scalable messaging in asynchronous workflows. Table Storage is a NoSQL solution ideal for fast access to semi-structured data without the need for foreign keys or joins. File Storage provides SMB-compatible shared drives, useful for migrating or extending on-prem file shares. Disk Storage provides persistent cloud-based disks for virtual machines, available in different sizes, types (SSD/HDD), and performance levels, and can be either managed or unmanaged.
+
+### 12
+Data in Azure is typically categorized into structured, semi-structured, and unstructured types. Structured data is highly organized, stored in tables with strict schemas and defined relationships, commonly used in relational databases. Semi-structured data lacks a fixed schema but includes unique identifiers for each record, while unstructured data includes files of any format, such as images, videos, and binaries. For semi-structured data, Cosmos DB is a globally distributed, schema-less NoSQL database service with multiple API options (SQL, MongoDB, Cassandra, Gremlin, Table) and sub-10ms latency, ideal for real-time and multi-regional applications. For structured data, Azure offers a full SQL product family, including Azure SQL Database (PaaS), Azure Database for MySQL and PostgreSQL, SQL Managed Instance (a fully managed SQL Server environment), SQL on VM (SQL Server hosted via IaaS), and Azure Synapse Analytics (formerly SQL DW) for massively parallel data processing. These services support complex queries, high performance, scalability, and full cloud management for modern application development.
+
+### 13
+### 14
+### 15
+### 16
+### 17
+### 18
+### 19
+### 20
+### 21
+### 22
+### 23
+### 24
+### 25
+### 26
+### 27
+### 28
+### 29
+### 30
+### 31
+### 32
+### 33
+### 34
+### 35
+### 36
+### 37
+### 38
+### 39
