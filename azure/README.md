@@ -66,18 +66,44 @@ Network Security Groups (NSGs) are used to control and filter inbound and outbou
 Routing in Azure is the process of determining the path that network traffic takes within or across networks. By default, Azure provides built-in system routing for Virtual Networks. However, User-Defined Routes (UDRs) allow you to override this default behavior or introduce custom static routes. These are managed through the Azure Route Table resource, which can be associated with one or more subnets within a Virtual Network. UDRs are commonly used to direct traffic through network virtual appliances (NVAs), implement custom routing logic, or enforce security and traffic inspection policies.
 
 ### 23
+Firewall is a network security service that monitors and controls traffic flow. Azure Firewall is a fully managed, scalable PaaS solution that supports inbound and outbound filtering, including FQDN-based rules (e.g., microsoft.com), and integrates with Azure Monitor for logging and analytics. It includes built-in high availability.
+
 ### 24
+DoS (Denial of Service) is a cyberattack aiming to disrupt service availability. DDoS (Distributed DoS) is a more powerful form using multiple sources. Azure DDoS Protection helps detect and block malicious traffic while allowing legitimate access. It includes a Basic tier (enabled by default) and a Standard tier with enhanced mitigation, traffic analytics, and machine learning–based detection for Azure Virtual Network resources.
+
 ### 25
+Identity refers to users, applications, or services with credentials (e.g., passwords, keys, certificates). Authentication verifies identity, while authorization ensures that only authenticated identities access permitted resources. Access management controls and tracks this access. Azure Active Directory (Azure AD) is Microsoft’s cloud-based identity and access management service used across Azure, Microsoft 365, and more. It supports users, groups, roles, and policies. Multi-Factor Authentication (MFA) adds extra verification using combinations of factors like passwords (something you know), devices (something you have), biometrics (something you are), or location (somewhere you are), and is natively supported in Azure AD.
+
 ### 26
+Microsoft Defender for Cloud (formerly Azure Security Center) is a centralized security management service embedded in Azure. It integrates with Azure Advisor and provides continuous security assessments and recommendations. The Free tier offers basic posture management, while the Paid tier (Defender ON) adds advanced threat protection, hybrid environment support, vulnerability scanning, and features like Just-In-Time (JIT) VM access.
+
 ### 27
+Azure Key Vault is a managed PaaS service for securely storing and managing keys, secrets, and certificates. It enables centralized protection of sensitive information, with full integration into other Azure services like VMs, Logic Apps, Data Factory, and Web Apps. It also supports access monitoring and logging for enhanced security and compliance.
+
 ### 28
+In Azure Role-Based Access Control (RBAC), a role defines what actions can be performed, a security principal (user, group, or application) defines who can perform them, and a scope defines where they can be performed (resource, resource group, subscription, or management group). A role assignment combines these three elements to control access. RBAC is built on Azure Resource Manager and allows fine-grained, hierarchical access control. It supports both built-in and custom roles for managing Azure resources securely and efficiently.
+
 ### 29
+An Azure Resource Lock prevents accidental deletion or modification of resources and works alongside RBAC. There are two lock types: Read-only (ReadOnly), which allows only read actions, and Delete (CanNotDelete), which blocks deletion but allows updates. Locks apply hierarchically—locks set at the subscription or resource group level are inherited by child resources. Management Groups cannot be locked. Only users with the Owner or User Access Administrator roles can manage locks.
+
 ### 30
+Azure Resource Tags are key-value pairs used to organize and manage Azure resources. Tags support governance, security, cost tracking, and automation. Common tagging strategies include functional (e.g., environment = production), classification (e.g., classification = restricted), finance (e.g., department = finance), and ownership (e.g., owner = adam). Tags can be applied to resources, resource groups, and subscriptions, but they are not inherited by default.
+
 ### 31
+Azure Policy is a governance tool that enforces rules on resource properties to support compliance, security, and cost control (unlike RBAC, which controls user actions). A policy definition describes a condition and its effect (e.g., deny, audit, modify). Policies can restrict resource types, locations, SKUs, or enforce tagging. Policy initiatives group multiple policies, and assignments apply them to scopes like management groups, subscriptions, resource groups, or resources. Policies can include exclusions and are evaluated during resource creation, updates, and optionally against existing resources using remediation.
+
 ### 32
+Azure Blueprints are packages of Azure components—such as Resource Groups, ARM templates, Policy assignments, and Role assignments—used to define and deploy organizational standards. A blueprint definition outlines what should be deployed (reusable design pattern), while a blueprint assignment specifies where it should be applied. Blueprints provide centralized management and consistent, compliant environments across multiple subscriptions.
+
 ### 33
+Cloud adoption to strategiczne przejście organizacji do chmury w celu zwiększenia elastyczności i innowacyjności. Cloud Adoption Framework for Azure to zestaw narzędzi i wytycznych Microsoftu, który wspiera firmy w tej transformacji. Obejmuje zdefiniowanie motywacji, oczekiwanych rezultatów biznesowych oraz uzasadnienia finansowego. Następnie wybierany jest pierwszy projekt (POC) i tworzony plan migracji na podstawie inwentaryzacji zasobów (tzw. digital estate) z zastosowaniem jednej z metod: Rehost, Refactor, Rearchitect, Rebuild lub Replace. Po przygotowaniu środowiska (Landing Zone) następuje migracja, innowacja oraz wdrożenie zasad governance i zarządzania operacyjnego, kończąc na przypisaniu ról i odpowiedzialności (Organize).
+
 ### 34
+Microsoft provides several key documents and portals to support transparency, compliance, and legal clarity. The Microsoft Privacy Statement explains how personal data is collected, used, and stored across all Microsoft services and applies to both individuals and organizations. The Online Services Terms (OST) outlines the licensing terms and usage rights for services like Azure and Microsoft 365, primarily targeting legal teams. The Data Protection Addendum (DPA) supplements the OST by detailing data processing responsibilities for both Microsoft and the customer. The Trust Center is a central portal offering guidance on security, privacy, and compliance across Microsoft services, while the Azure Compliance Documentation focuses specifically on Azure’s compliance offerings. For markets with strict regulatory requirements, Microsoft provides Azure Sovereign Regions such as Azure Government (for the U.S. government) and Azure China (operated by 21Vianet), both physically isolated and separately managed to meet local laws and standards.
+
 ### 35
+Azure costs are influenced by several key factors. The base cost depends on the resource type, as each Azure service has its own pricing model based on specific metrics. Pricing also varies by offer type (e.g., Enterprise Agreement, CSP, or Pay-As-You-Go), location, since costs differ across Azure regions, and bandwidth, where outbound (egress) traffic is typically charged. To reduce costs, Azure offers savings options like Reserved Instances (prepaid long-term resource commitments) and Azure Hybrid Benefit (cost savings when using existing Windows Server or SQL Server licenses).
+
 ### 36
 ### 37
 ### 38
