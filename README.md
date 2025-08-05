@@ -56,14 +56,12 @@ This section will evolve as I build and refine my toolkit:
 
 ---
 
-## 🛤️ What's Next
+## 🛤️ JJ
 
-I'm currently focusing on:
-- Implementing ML algorithms from scratch  
-- Experimenting with deep learning models (NLP & CV)  
-- Building small end-to-end projects and APIs  
-- Learning model deployment and tracking tools (FastAPI, MLflow, Docker)  
-- Extending production-grade pipelines for tabular data and vector search  
+- Python
+- LLM
+- Rag
+- Azure
 
 ---
 
